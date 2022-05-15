@@ -9,6 +9,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -19,6 +20,7 @@ import dev.cancio.pokedex.ui.screen.LikeScreen
 import dev.cancio.pokedex.ui.component.organism.BottomNavItem.Likes
 import dev.cancio.pokedex.ui.component.organism.BottomNavItem.Home
 import dev.cancio.pokedex.ui.theme.*
+import dev.cancio.pokedex.viewmodel.HomeViewModel
 
 @Composable
 fun PokeBar(navController: NavController, itemList: List<BottomNavItem>)  {
@@ -73,7 +75,7 @@ sealed class BottomNavItem(
     val icon: ImageVector,
     val title: String,
     val screen: (@Composable () -> Unit)) {
-    object Home : BottomNavItem("home", Icons.Filled.Home, "Home", { HomeScreen() })
+    object Home : BottomNavItem("home", Icons.Filled.Home, "Home", { HomeScreen(HomeViewModel()) })
     object Likes : BottomNavItem("likes", Icons.Filled.Star, "Likes", { LikeScreen() })
 }
 

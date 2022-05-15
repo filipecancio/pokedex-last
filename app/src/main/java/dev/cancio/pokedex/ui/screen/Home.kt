@@ -13,10 +13,12 @@ import dev.cancio.pokedex.api.PokemonResponse
 import dev.cancio.pokedex.ui.component.atom.FeaturedCard
 import dev.cancio.pokedex.ui.component.atom.PokemonList
 import dev.cancio.pokedex.ui.theme.Typography
+import dev.cancio.pokedex.viewmodel.HomeViewModel
 
 @Composable
-fun HomeScreen() {
-    val pokemonList = PokemonResponse.POKEMON_PAGINATION_MOCK.results
+fun HomeScreen(viewModel: HomeViewModel) {
+    //val pokemonList = PokemonResponse.POKEMON_PAGINATION_MOCK.results
+    val pokemonList = viewModel.homePokemons.results
     LazyColumn(
         Modifier
             .fillMaxSize()
