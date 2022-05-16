@@ -66,7 +66,9 @@ fun PokeBar(navController: NavController, itemList: List<BottomNavItem>)  {
 @Composable
 fun MainNavigation(navController: NavHostController, itemList: List<BottomNavItem>) {
     NavHost(navController = navController, startDestination = itemList.first().route) {
-        itemList.forEach { item -> composable(item.route) { item.screen.invoke() } }
+        itemList.forEach { item -> composable(item.route) {
+            item.screen.invoke()
+        } }
     }
 }
 

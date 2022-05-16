@@ -1,11 +1,15 @@
 package dev.cancio.pokedex.viewmodel
 
 import androidx.hilt.lifecycle.ViewModelInject
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.cancio.pokedex.api.PokemonResponse
 import dev.cancio.pokedex.model.Pokemon
+import javax.inject.Inject
 
-class HomeViewModel @ViewModelInject constructor():ViewModel() {
+@HiltViewModel
+class HomeViewModel:ViewModel() {
     val homePokemons = PokemonResponse(
         count = 1126,
         next = "https://pokeapi.co/api/v2/pokemon?offset=20&limit=20",

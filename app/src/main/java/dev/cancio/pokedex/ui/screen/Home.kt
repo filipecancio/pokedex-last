@@ -9,6 +9,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import dev.cancio.pokedex.api.PokemonResponse
 import dev.cancio.pokedex.ui.component.atom.FeaturedCard
 import dev.cancio.pokedex.ui.component.atom.PokemonList
@@ -16,7 +17,7 @@ import dev.cancio.pokedex.ui.theme.Typography
 import dev.cancio.pokedex.viewmodel.HomeViewModel
 
 @Composable
-fun HomeScreen(viewModel: HomeViewModel) {
+fun HomeScreen(viewModel:HomeViewModel) {
     //val pokemonList = PokemonResponse.POKEMON_PAGINATION_MOCK.results
     val pokemonList = viewModel.homePokemons.results
     LazyColumn(
